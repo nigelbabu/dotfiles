@@ -100,3 +100,5 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType javascript setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType less setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType css setlocal expandtab shiftwidth=4 softtabstop=4
+
+nnoremap <leader>spell :setlocal spell spelllang=en_us
