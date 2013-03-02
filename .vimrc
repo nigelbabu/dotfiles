@@ -8,10 +8,10 @@ set number
 syntax on
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set smartindent
-"set tabstop=4
-"set shiftwidth=4
+set tabstop=4
+set shiftwidth=4
 set expandtab
-"set softtabstop=4
+set softtabstop=4
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -62,6 +62,7 @@ inoremap <right> <nop>
 nnoremap ; :
 au FocusLost * :wa
 inoremap jj <ESC>
+:inoremap # X#
 
 set background=dark
 
@@ -102,3 +103,4 @@ autocmd FileType less setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType css setlocal expandtab shiftwidth=4 softtabstop=4
 
 nnoremap <leader>spell :setlocal spell spelllang=en_us
+set cc=80
