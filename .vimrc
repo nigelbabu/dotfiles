@@ -5,6 +5,7 @@ filetype plugin indent on
 set ofu=syntaxcomplete#Complete
 set modelines=0
 
+let mapleader = ","
 set number
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set smartindent
