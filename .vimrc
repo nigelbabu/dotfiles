@@ -1,11 +1,11 @@
-set nocompatible
-call pathogen#infect()
-filetype plugin on
+execute pathogen#infect()
+call pathogen#helptags()
+syntax on
+filetype plugin indent on
 set ofu=syntaxcomplete#Complete
 set modelines=0
 
 set number
-syntax on
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set smartindent
 set tabstop=4
@@ -33,7 +33,6 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
-set wildignore=*.swp,*.bak,*.pyc,*.class
 set incsearch
 set hlsearch
 set ignorecase
@@ -81,26 +80,10 @@ function! StripTrailingSpaces()
 endfunction
 au BufWritePre * :call StripTrailingSpaces()
 
-function! RedBar()
-    hi RedBar ctermfg=white ctermbg=red guibg=red
-    echohl RedBar
-    echon repeat(" ",&columns - 1)
-    echohl
-endfunction
-
 set nobackup
 set nowritebackup
 set noswapfile
 
-nnoremap <F11> :TlistToggle
 nnoremap ; :
 
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType javascript setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType less setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType css setlocal expandtab shiftwidth=4 softtabstop=4
-
 nnoremap <leader>spell :setlocal spell spelllang=en_us
-set cc=80
