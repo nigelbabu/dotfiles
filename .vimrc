@@ -70,8 +70,6 @@ highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
 match TrailingWhitespace /\s\+$/
 au TabEnter * :match TrailingWhitespace /\s\+$/
 
-map <C-b> Oimport ipdb; ipdb.set_trace()<Esc>
-
 " Trailing space removal on save
 function! StripTrailingSpaces()
     let l = line(".")
@@ -87,4 +85,7 @@ set noswapfile
 
 nnoremap ; :
 
-nnoremap <leader>spell :setlocal spell spelllang=en_us
+nnoremap <leader>spell :setlocal spell spelllang=en_us<CR>
+nnoremap <leader>nospell :setlocal nospell<CR>
+inoremap <leader>t <Esc>:tabnew
+nnoremap <leader>t :tabnew
