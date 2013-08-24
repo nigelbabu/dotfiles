@@ -89,3 +89,4 @@ nnoremap <leader>spell :setlocal spell spelllang=en_us<CR>
 nnoremap <leader>nospell :setlocal nospell<CR>
 inoremap <leader>t <Esc>:tabnew
 nnoremap <leader>t :tabnew
+nnoremap <leader>nop :setlocal nopaste<CR>
