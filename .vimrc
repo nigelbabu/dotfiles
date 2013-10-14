@@ -69,6 +69,7 @@ set background=dark
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
 match TrailingWhitespace /\s\+$/
 au TabEnter * :match TrailingWhitespace /\s\+$/
+au BufRead,BufNewFile *.md set filetype=markdown
 
 " Trailing space removal on save
 function! StripTrailingSpaces()
