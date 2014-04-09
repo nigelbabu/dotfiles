@@ -392,4 +392,5 @@ function run_once(cmd)
 end
 
 run_once("xscreensaver -no-splash")
+run_once("/usr/bin/dropbox start")
 -- }}
