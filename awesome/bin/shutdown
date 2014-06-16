@@ -12,7 +12,7 @@ if [ -n "${ACTION}" ];then
   Reboot)
     zenity --question --text "Are you sure you want to reboot?" && \
     dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" \
-    /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop
+    /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart
     ;;
   LockScreen)
     xscreensaver-command -lock
