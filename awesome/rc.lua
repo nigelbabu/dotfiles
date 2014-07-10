@@ -6,9 +6,10 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-
 -- Load Debian menu entries
 require("debian.menu")
+-- Battery Status
+require("battery")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -99,6 +100,15 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
 -- }}}
 
+-- Battery
+batterywidget = widget({type = "textbox", name = "batterywidget", align = "right" })
+
+bat_clo = battery.batclosure("BAT1")
+battimer = timer({ timeout = 30 })
+battimer:add_signal("timeout", function() batterywidget.text = bat_clo() end)
+battimer:start()
+
+
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
@@ -183,6 +193,7 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         mytextclock,
         s == 1 and mysystray or nil,
+        batterywidget,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
