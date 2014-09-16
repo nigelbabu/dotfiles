@@ -18,15 +18,12 @@ function get_bat_state (adapter)
     local fcur = io.open("/sys/class/power_supply/"..adapter.."/energy_now")
     local fcap = io.open("/sys/class/power_supply/"..adapter.."/energy_full")
     local fsta = io.open("/sys/class/power_supply/"..adapter.."/status")
-    local facp = io.popen("acpi -b")
     local cur = fcur:read()
     local cap = fcap:read()
     local sta = fsta:read()
-    local acp = facp:read()
     fcur:close()
     fcap:close()
     fsta:close()
-    facp:close()
     local battery = math.floor(cur * 100 / cap)
     if sta:match("Charging") then
         dir = 1
@@ -36,9 +33,7 @@ function get_bat_state (adapter)
         dir = 0
         battery = ""
     end
-    local idx = acp:find('remaining')
-    local time = acp:sub(idx - 8, idx - 5)
-    return battery, dir, time
+    return battery, dir
 end
 
 function getnextlim (num)
@@ -61,11 +56,10 @@ function batclosure (adapter)
     local nextlim = limits[1][1]
     return function ()
         local prefix = "⚡"
-        local battery, dir, time = get_bat_state(adapter)
+        local battery, dir = get_bat_state(adapter)
         if dir == -1 then
             dirsign = "↓"
-            prefix = "Bat: "
-            prefix = prefix .. time
+            prefix = "Bat:"
             if battery <= nextlim then
                 naughty.notify({title = "⚡ Beware! ⚡",
                             text = "Battery charge is low ( ⚡ "..battery.."%)!",
@@ -86,4 +80,3 @@ function batclosure (adapter)
         return " "..prefix.." "..dirsign..battery..dirsign.." "
     end
 end
-
