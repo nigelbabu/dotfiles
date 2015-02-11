@@ -38,7 +38,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -268,7 +268,8 @@ globalkeys = awful.util.table.join(
               end),
 
     -- Custom Changes
-     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end)
+     awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
+     awful.key({}, "Print", function() awful.util.spawn("/home/nigel/.config/awesome/bin/screenshot") end)
 )
 
 clientkeys = awful.util.table.join(
