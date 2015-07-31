@@ -86,7 +86,7 @@ myawesomemenu = {
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit },
-   { "shutdown", '/home/nigel/.config/awesome/bin/shutdown'},
+   { "shutdown", '/home/nigelb/.config/awesome/bin/shutdown'},
 
 }
 
@@ -269,7 +269,7 @@ globalkeys = awful.util.table.join(
 
     -- Custom Changes
      awful.key({ modkey, "Control" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end),
-     awful.key({}, "Print", function() awful.util.spawn("/home/nigel/.config/awesome/bin/screenshot") end)
+     awful.key({}, "Print", function() awful.util.spawn("/home/nigelb/.config/awesome/bin/screenshot") end)
 )
 
 clientkeys = awful.util.table.join(
